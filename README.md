@@ -24,16 +24,36 @@ Etc...
 npm install
 ```
 
-3. Start Project
+2. Start Project
 
 ```
 npm run dev
 ```
 
-4. If you using git, delete the existing folder .git after cloning (open `git bash` or other terminal)
+3. If you using git, delete the existing folder .git after cloning (open `git bash` or other terminal)
 
 ```
 rm -rf .git
+```
+
+## **Deploy Github 📦**
+
+1. Build
+
+```
+npm run build
+```
+
+2. Add /dist folder into your repo. By running.
+
+```
+git add dist -f
+```
+
+3. Push to gh-pages
+
+```
+git subtree push --prefix dist origin gh-pages
 ```
 
 ## **Options ✍️**
