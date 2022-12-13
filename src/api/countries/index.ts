@@ -1,9 +1,9 @@
-import axios from "axios";
-import { useQuery } from "react-query";
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
-const url = "https://restcountries.com/v3.1/";
+const url = 'https://restcountries.com/v3.1/';
 
-export const ALL_COUNTRIES = "ALL_COUNTRIES";
+export const ALL_COUNTRIES = 'ALL_COUNTRIES';
 
 const getAllCountries = async () => {
   try {
@@ -15,7 +15,7 @@ const getAllCountries = async () => {
   }
 };
 
-export const useAllCountriesQuery = (enabled: boolean = false) => {
+export const useAllCountriesQuery = (enabled = false) => {
   return useQuery({
     queryKey: [ALL_COUNTRIES],
     queryFn() {

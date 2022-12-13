@@ -11,11 +11,9 @@ type PROPS = {
 
 const TableWrapper = styled('div')(() => ({
   marginTop: '20px',
-  overflow: 'scroll',
   color: '#6a5d5d',
   backgroundColor: 'white',
   height: '60vh',
-  overflowX: 'hidden',
 }));
 
 function Table({ countries = [], isLoading }: PROPS) {

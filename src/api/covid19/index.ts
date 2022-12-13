@@ -1,12 +1,12 @@
-import axios from "axios";
-import { useQuery } from "react-query";
+import axios from 'axios';
+import { useQuery } from 'react-query';
 
-const url = "https://api.covid19api.com";
+const url = 'https://api.covid19api.com';
 
-const SUMMARY_QUERY = "SUMMARY_QUERY";
+const SUMMARY_QUERY = 'SUMMARY_QUERY';
 
 const getSummary = async () => {
-  let changeableUrl = `${url}/summary`;
+  const changeableUrl = `${url}/summary`;
 
   try {
     const { data } = await axios.get(changeableUrl);
@@ -36,7 +36,7 @@ export const useSummaryQuery = () => {
   };
 };
 
-const COUNTRIES_QUERY = "COUNTRIES_QUERY";
+const COUNTRIES_QUERY = 'COUNTRIES_QUERY';
 
 const getCountries = async () => {
   try {
@@ -56,14 +56,12 @@ export const useCountriesQuery = () => {
     },
   });
 };
-const COUNTRY_QUERY = "COUNTRY_QUERY";
+const COUNTRY_QUERY = 'COUNTRY_QUERY';
 
 const getDayOneCountry = async ({ params }: { params?: string }) => {
   try {
     const currentDate = new Date().toISOString();
-    const before7Daysdate = new Date(
-      Date.now() - 7 * 24 * 60 * 60 * 1000
-    ).toISOString();
+    const before7Daysdate = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
 
     const { data } = await axios.get(`${url}/country/${params}`, {
       params: {
