@@ -10,7 +10,8 @@
     "lint:fix": "npm run lint -- --fix",
     "prettier": "npx prettier src --check",
     "prettier:fix": "npm run prettier -- --write",
-    "format": "npm run prettier:fix && npm run lint:fix"
+    "format": "npm run prettier:fix && npm run lint:fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.10.5",
@@ -21,8 +22,9 @@
     "@tanstack/react-virtual": "^3.0.0-beta.30",
     "axios": "^1.2.1",
     "chart.js": "^4.0.1",
+    "husky": "^8.0.2",
+    "lint-staged": "^13.1.0",
     "numeral": "^2.0.6",
-    "pre-commit": "^1.2.2",
     "react": "^18.1.0",
     "react-chartjs-2": "^5.0.1",
     "react-dom": "^18.1.0",
@@ -50,5 +52,10 @@
     "typescript": "^4.6.3",
     "vite": "^2.9.9",
     "vite-tsconfig-paths": "^3.5.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": "eslint --cache --fix --max-warnings 0",
+    "*.css": "stylelint --cache --fix --max-warnings 0",
+    "*.{js,jsx,ts,tsx,css,htm,html,md}": "prettier --cache --write"
   }
 }
