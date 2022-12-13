@@ -2,7 +2,7 @@ import { Card, CardContent, Typography, Grid, CircularProgress, Box, styled } fr
 import { infected, recover, death } from '../../images';
 import { SUMMARY_DATA } from '../../types';
 
-const CardItem = styled(Grid)(({ borderColor }) => ({
+const CardItem = styled(Grid)(({ borderColor }: { borderColor: string }) => ({
   borderBottom: `10px solid ${borderColor}`,
 }));
 
