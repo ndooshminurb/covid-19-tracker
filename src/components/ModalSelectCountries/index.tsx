@@ -71,7 +71,6 @@ const ModalSelectCountries = () => {
     if (!isLoading) {
       setOriginData(data);
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const optionChangeHandler = (value: string) => {
@@ -149,7 +148,7 @@ const ModalSelectCountries = () => {
     );
   };
 
-  const currentData = useMemo(() => data, [data]);
+  const currentData = useMemo(() => data, [data, region]);
 
   return (
     <div>
