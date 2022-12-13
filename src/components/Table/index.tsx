@@ -18,24 +18,24 @@ const TableWrapper = styled('div')(() => ({
 
 function Table({ countries = [], isLoading }: PROPS) {
   const columns = [
-    { field: 'Country', headerName: 'Country', width: 120 },
+    { field: 'Country', headerName: 'Country', flex: 1 },
     {
       field: 'TotalConfirmed',
       headerName: 'Infected',
       type: 'number',
-      width: 120,
+      flex: 1,
     },
     {
       field: 'TotalRecovered',
       headerName: 'Recovered',
       type: 'number',
-      width: 120,
+      flex: 1,
     },
     {
       field: 'TotalDeaths',
       headerName: 'Deaths',
       type: 'number',
-      width: 120,
+      flex: 1,
     },
   ];
 
@@ -58,7 +58,13 @@ function Table({ countries = [], isLoading }: PROPS) {
         </Box>
       ) : (
         <div style={{ height: '60vh', width: '100%' }}>
-          <DataGrid rows={rows} columns={columns} pageSize={10} rowsPerPageOptions={[10]} />
+          <DataGrid
+            rows={rows}
+            columns={columns}
+            pageSize={10}
+            disableSelectionOnClick
+            rowsPerPageOptions={[10]}
+          />
         </div>
       )}
     </TableWrapper>

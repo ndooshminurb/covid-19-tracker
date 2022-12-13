@@ -18,7 +18,7 @@ const App = () => {
       <Grid item xs={12} display='flex' justifyContent='center'>
         <img src={logo} alt='COVID-19' />
       </Grid>
-      <Grid item container xs={12} md={7} display='flex' direction='column' gap={3}>
+      <Grid item container xs={12} md={7} display='flex' direction='column' gap={7}>
         <Cards data={data} isLoading={isLoading} />
         <Chart data={data} isLoading={isLoading} />
       </Grid>
