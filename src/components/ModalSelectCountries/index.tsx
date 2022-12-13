@@ -53,7 +53,7 @@ const options = [
 ];
 
 const ModalSelectCountries = () => {
-  const list = useRef<FixedSizeList>(null);
+  const list = useRef<FixedSizeList<HTMLButtonElement | unknown>>(null);
   const [originData, setOriginData] = useState<COUNTRIES_DATA[]>([]);
   const [open, setOpen] = useState(false);
   const [region, setRegion] = useState<string>('default');
@@ -62,16 +62,23 @@ const ModalSelectCountries = () => {
   const queryClient = useQueryClient();
 
   useEffect(() => {
+    if (region && list) {
+      list?.current?.scrollToItem(0);
+    }
+  }, [region, list]);
+
+  useEffect(() => {
     if (!isLoading) {
       setOriginData(data);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const optionChangeHandler = (value: string) => {
     if (value !== 'default') {
       queryClient.setQueryData([ALL_COUNTRIES], () => {
         const newData = originData.filter((obj) => obj.region === value);
-
+        console.log('newData', newData);
         return newData;
       });
     }
@@ -142,7 +149,7 @@ const ModalSelectCountries = () => {
     );
   };
 
-  const currentData = useMemo(() => data, [data, region]);
+  const currentData = useMemo(() => data, [data]);
 
   return (
     <div>
